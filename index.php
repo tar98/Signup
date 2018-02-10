@@ -22,8 +22,19 @@
                               <option name = "USA" value = "USA">United States of America</option>
                               <option name = "FRA" value = "France">France</option>
                              </select></p><br>
+            <p>Patente : Categ. A<input type = "checkbox" name = "Patente"> Categ. B<input type = "checkbox" name = "Patente"></p><br>
+            <p>Email : <input type = "text" name = "e-mail"></p><br>
+            <p>Password : <input type = "text" name = "password"></p><br>
           </center>
          </div>
+         <div class = "panel-footer">
+           <center>
+              <p>
+                <input id = "cancel" type = "submit" name = "cancel" value = "Annulla">
+                <input id = "confirm" type = "submit" name = "confirm" value = "Conferma">
+              </p>
+           </center>
+         </div>    
         </div>
     </form>
   </body>
