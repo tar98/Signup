@@ -1,0 +1,137 @@
+.panel-default
+{
+  max-width: 500px;
+  margin: auto;
+}
+
+.panel-default > .panel-heading
+{
+  background-image: none;
+  background: #007bff;
+  color:#FFFFFF;
+  padding: 10px 15px;
+  border-bottom: 1px solid;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  position: relative;
+}
+
+.panel-default > .panel-body
+{
+  background-image: none;
+  background: #007bff;
+  color:#FFFFFF;
+  font-family: Arial, Corbel, sans-serif;
+  font-size:16px;
+  font-weight:none;
+  text-decoration:none;
+  text-transform:capitalize;
+  line-height:1.3em;
+  position: relative;
+}
+
+.panel-default > .panel-footer
+{
+  background-image: none;
+  background: #007bff;
+  color:#FFFFFF;
+  padding: 10px 15px;
+  border-bottom: 0px solid;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  position: relative;
+}
+
+/* Cancel button */
+#cancel {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px 10px;
+    border: 1px solid #7c6b6d;
+    border-radius: 5px;
+    background: #caaeb1;
+    background: -webkit-gradient(linear, left top, left bottom, from(#caaeb1), to(#7c6b6d));
+    background: -moz-linear-gradient(top, #caaeb1, #7c6b6d);
+    background: linear-gradient(to bottom, #caaeb1, #7c6b6d);
+    font: normal normal bold 15px arial;
+    color: #ffffff;
+    text-decoration: none;
+}
+#cancel:hover,
+#cancel:focus {
+    border: 1px solid #9b8688;
+    background: #f2d1d4;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f2d1d4), to(#958083));
+    background: -moz-linear-gradient(top, #f2d1d4, #958083);
+    background: linear-gradient(to bottom, #f2d1d4, #958083);
+    color: #ffffff;
+    text-decoration: none;
+}
+#cancel:active {
+    background: #7c6b6d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#7c6b6d), to(#7c6b6d));
+    background: -moz-linear-gradient(top, #7c6b6d, #7c6b6d);
+    background: linear-gradient(to bottom, #7c6b6d, #7c6b6d);
+}
+#cancel:before{
+    content:  "\0000a0";
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    line-height: 24px;
+    margin: 0 4px -6px -4px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background-image: url("http://sing-tarchigiacomo2310374182.codeanyapp.com/image/correct-symbol.png") left;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/* Confirm button */
+#confirm {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px 10px;
+    border: 1px solid #aa0305;
+    border-radius: 5px;
+    background: #ff060a;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ff060a), to(#aa0305));
+    background: -moz-linear-gradient(top, #ff060a, #aa0305);
+    background: linear-gradient(to bottom, #ff060a, #aa0305);
+    font: normal normal bold 15px arial;
+    color: #ffffff;
+    text-decoration: none;
+}
+#confirm:hover,
+#confirm:focus {
+    border: 1px solid #c80406;
+    background: #ff070c;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ff070c), to(#cc0406));
+    background: -moz-linear-gradient(top, #ff070c, #cc0406);
+    background: linear-gradient(to bottom, #ff070c, #cc0406);
+    color: #ffffff;
+    text-decoration: none;
+}
+#confirm:active {
+    background: #aa0305;
+    background: -webkit-gradient(linear, left top, left bottom, from(#aa0305), to(#aa0305));
+    background: -moz-linear-gradient(top, #aa0305, #aa0305);
+    background: linear-gradient(to bottom, #aa0305, #aa0305);
+}
+#confirm:before{
+    content:  "\0000a0";
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    line-height: 24px;
+    margin: 0 4px -6px -4px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background-image: url("http://sing-tarchigiacomo2310374182.codeanyapp.com/image/correct-symbol.png") left;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
