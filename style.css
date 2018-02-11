@@ -1,30 +1,48 @@
+.panel-default
+{
+  max-width: 500px;
+  margin: auto;
+}
+
 .panel-default > .panel-heading
 {
   background-image: none;
-  background: #0077ff;
+  background: #007bff;
   color:#FFFFFF;
+  padding: 10px 15px;
+  border-bottom: 1px solid;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  position: relative;
 }
 
 .panel-default > .panel-body
 {
   background-image: none;
-  background: #0077ff;
+  background: #007bff;
   color:#FFFFFF;
-  font-family:Corbel, sans-serif;
+  font-family: Arial, Corbel, sans-serif;
   font-size:16px;
   font-weight:none;
   text-decoration:none;
   text-transform:capitalize;
   line-height:1.3em;
+  position: relative;
 }
 
 .panel-default > .panel-footer
 {
   background-image: none;
-  background: #0077ff;
+  background: #007bff;
   color:#FFFFFF;
+  padding: 10px 15px;
+  border-bottom: 0px solid;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  position: relative;
 }
 
+/* Cancel button */
 #cancel {
     display: inline-block;
     text-align: center;
@@ -66,10 +84,12 @@
     position: relative;
     top: 0px;
     left: 0px;
-    background-image: url("http://sing-tarchigiacomo2310374182.codeanyapp.com/image/correct-symbol.png") left center;
+    background-image: url("http://sing-tarchigiacomo2310374182.codeanyapp.com/image/correct-symbol.png") left;
+    background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 
+/* Confirm button */
 #confirm {
     display: inline-block;
     text-align: center;
@@ -111,7 +131,7 @@
     position: relative;
     top: 0px;
     left: 0px;
-    background-image: url("http://sing-tarchigiacomo2310374182.codeanyapp.com/image/correct-symbol.png") left center transparent;
+    background-image: url("http://sing-tarchigiacomo2310374182.codeanyapp.com/image/correct-symbol.png") left;
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
