@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+<?php
+		$PatenteA;
+		$PatenteB;
+		$surname = $_GET['cognome'];
+		$name = $_GET['nome'];
+		$email = $_GET['e-mail'];
+		$password = $_GET['password'];
+		$Country = $_GET['COMBO'];
+		$Gender = $_GET['gender'];
+		if(isset($_GET['PatenteA'])) $PatenteA = $_GET['PatenteA'];
+		if(isset($_GET['PatenteB'])) $PatenteB = $_GET['PatenteB'];
+?>
 <html>
   <head>
       <meta charset="utf-8">
@@ -11,15 +23,6 @@
       <link rel="stylesheet" type="text/css" href="css/style_data.css"/>
   </head>
   <body>
-    <?php
-		$surname = $_GET['cognome'];
-		$name = $_GET['name'];
-		$email = $_GET['e-mail'];
-		$password = $_GET['password'];
-		$Country = $_GET['COMBO'];
-		$Gender = $_GET['gender'];
-		$Patente = $_GET['Patente'];
-    ?>
     <div class = "Conteiner" name = "Sign-up">
         <div class="panel panel-default">
          <div class = "panel-heading">
@@ -33,20 +36,23 @@
 							<p>Nome : <?php echo $name;?></p><br>
 							<p>Sesso : <?php echo $Gender?></p><br>
 							<p>Nazionalita : <?php echo $Country;?></p><br>
-							<p>Patente :<?php echo $Patente;?> </p><br>
+							<p>Patente :<?php
+								if(isset($PatenteA)) echo $PatenteA . ' ';
+								if(isset($PatenteB)) echo $PatenteB;
+								?> </p><br>
 							<p>Email : <?php echo $email;?></p><br>
 							<p>Password : <?php echo $password;?></p><br>
 					</center>
          </div>
          <div class = "panel-footer">
-           <form action = "" method = "get">
-					 		<center>
-              		<p>
-                		<button id = "cancel" type = "submit" value = "Annulla">Annulla</button>
-                		<button id = "sign-up" type = "submit" value = "Registra">Registra</button>
-              		</p>
-						 	</center>
-					 </form>
+					 	<center>
+             		<form action = "index.html">
+									<button id = "cancel" type = "submit" value = "Annulla">Annulla</button>
+								<form action = "sign.html">
+              		<button id = "sign-up" type = "submit" value = "Registra">Registra</button>
+								</form>
+								</form>
+						</center>
          </div>    
         </div>
     </div>
