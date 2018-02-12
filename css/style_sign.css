@@ -1,0 +1,31 @@
+.panel-default
+{
+  max-width: 500px;
+  margin: auto;
+}
+
+.panel-default > .panel-heading
+{
+  background-image: none;
+  background: #007bff;
+  color:#FFFFFF;
+  padding: 10px 15px;
+  border-bottom: 1px solid;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  position: relative;
+}
+
+.panel-default > .panel-body
+{
+  background-image: none;
+  background: #00a9ff;
+  color:#FFFFFF;
+  font-family: Arial, Corbel, sans-serif;
+  font-size:16px;
+  font-weight:none;
+  text-decoration:none;
+  text-transform:capitalize;
+  line-height:1.3em;
+  position: relative;
+}
