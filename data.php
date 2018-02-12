@@ -48,9 +48,9 @@
 					 	<center>
              		<form action = "index.html">
 									<button id = "cancel" type = "submit" value = "Annulla">Annulla</button>
+								</form>
 								<form action = "sign.html">
               		<button id = "sign-up" type = "submit" value = "Registra">Registra</button>
-								</form>
 								</form>
 						</center>
          </div>    
