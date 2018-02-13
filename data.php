@@ -46,15 +46,21 @@
          </div>
          <div class = "panel-footer">
 					 	<center>
-             		<form action = "index.html">
 									<button id = "cancel" type = "submit" value = "Annulla">Annulla</button>
-								</form>
-								<form action = "sign.html">
               		<button id = "sign-up" type = "submit" value = "Registra">Registra</button>
-								</form>
 						</center>
          </div>    
         </div>
     </div>
+		<script type="text/javascript">
+    document.getElementById("cancel").onclick = function () {
+        location.href = "index.html";
+    };
+		</script>
+		<script type="text/javascript">
+    document.getElementById("sign-up").onclick = function () {
+        location.href = "sign.html";
+    };
+		</script>
   </body>
 </html>
