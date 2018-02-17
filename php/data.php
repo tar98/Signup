@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
-		$PatenteA;
+		include 'start_db.php';
+  	$PatenteA;
 		$PatenteB;
 		$surname = $_GET['cognome'];
 		$name = $_GET['nome'];
@@ -20,7 +21,7 @@
 		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" type="text/css" href="css/style_data.css"/>
+      <link rel="stylesheet" type="text/css" href="../css/style_data.css"/>
   </head>
   <body>
     <div class = "Conteiner" name = "Sign-up">
@@ -54,12 +55,12 @@
     </div>
 		<script type="text/javascript">
     document.getElementById("cancel").onclick = function () {
-        location.href = "index.html";
+        location.href = "../index.html";
     };
 		</script>
 		<script type="text/javascript">
     document.getElementById("sign-up").onclick = function () {
-        location.href = "sign.html";
+        location.href = "../sign.html";
     };
 		</script>
   </body>
