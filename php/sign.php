@@ -1,3 +1,16 @@
+<?php
+		include 'start_db.php';
+  	$PatenteA;
+		$PatenteB;
+		$surname = $_GET['cognome'];
+		$name = $_GET['nome'];
+		$email = $_GET['e-mail'];
+		$password = $_GET['password'];
+		$Country = $_GET['COMBO'];
+		$Gender = $_GET['gender'];
+		if(isset($_GET['PatenteA'])) $PatenteA = $_GET['PatenteA'];
+		if(isset($_GET['PatenteB'])) $PatenteB = $_GET['PatenteB'];
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,7 +21,7 @@
 		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" type="text/css" href="css/style_sign.css"/>
+      <link rel="stylesheet" type="text/css" href="../css/style_sign.css"/>
   </head>
   <body>
     <div class = "Conteiner" name = "Sign-up">
@@ -25,7 +38,7 @@
          </div>
          <div class = "panel-footer">
 					 		<center>
-                <form action = "index.html">
+                <form action = "../index.html">
               		<p>
                 		<button id = "Close" type = "submit" value = "Chiudi">Chiudi</button>
               		</p>

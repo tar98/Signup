@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php
-		include 'start_db.php';
   	$PatenteA;
 		$PatenteB;
 		$surname = $_GET['cognome'];
@@ -24,7 +23,8 @@
       <link rel="stylesheet" type="text/css" href="../css/style_data.css"/>
   </head>
   <body>
-    <div class = "Conteiner" name = "Sign-up">
+    <div class = "Container" name = "Sign-up">
+		<form action = "sign.php" method = "GET">
         <div class="panel panel-default">
          <div class = "panel-heading">
             <center>
@@ -33,34 +33,33 @@
          </div>
          <div class="panel-body">
           <center>
-						  <p>Cognome : <?php echo $surname;?></p><br>
-							<p>Nome : <?php echo $name;?></p><br>
-							<p>Sesso : <?php echo $Gender?></p><br>
-							<p>Nazionalita : <?php echo $Country;?></p><br>
+						  <p>Cognome : <?php echo $surname;?><input id = "SURNAME" type = "hidden" name = "cognome" value = "<?php echo $surname;?>"></p><br>
+							<p>Nome : <?php echo $surname;?><input id = "NAME" type = "hidden" name = "nome" value = "<?php echo $name;?>"></p><br>
+							<p>Sesso : <?php echo $Gender?><input type = "hidden" name = "gender" value = "<?php echo $Gender?>"></p><br>
+							<p>Nazionalita : <?php echo $Country;?><input type = "hidden" name = "COMBO" value = "<?php echo $Country?>"></p><br>
 							<p>Patente :<?php
 								if(isset($PatenteA)) echo $PatenteA . ' ';
 								if(isset($PatenteB)) echo $PatenteB;
-								?> </p><br>
-							<p>Email : <?php echo $email;?></p><br>
-							<p>Password : <?php echo $password;?></p><br>
+								?><input type = "hidden" name = "PatenteA" value = <?php
+												 																							if(isset($PatenteA)) echo $PatenteA . ' ';
+																																			if(isset($PatenteB)) echo $PatenteB;
+												 																							?>></p><br>
+							<p>Email : <?php echo $email;?><input id = "E-MAIL" type = "hidden" name = "e-mail" value = "<?php echo $email;?>"></p><br>
+							<p>Password : <?php echo $password;?><input id = "PASSWORD" type = "hidden" name = "password" value = "<?php echo $password;?>"></p><br>
 					</center>
          </div>
          <div class = "panel-footer">
 					 	<center>
-									<button id = "cancel" type = "submit" value = "Annulla">Annulla</button>
+									<button id = "cancel" type = "button" value = "Annulla">Annulla</button>
               		<button id = "sign-up" type = "submit" value = "Registra">Registra</button>
 						</center>
          </div>    
         </div>
+			</form>
     </div>
 		<script type="text/javascript">
     document.getElementById("cancel").onclick = function () {
         location.href = "../index.html";
-    };
-		</script>
-		<script type="text/javascript">
-    document.getElementById("sign-up").onclick = function () {
-        location.href = "../sign.html";
     };
 		</script>
   </body>
