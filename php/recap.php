@@ -40,7 +40,7 @@
 							<p>Patente :<?php
 								if(isset($PatenteA)) echo $PatenteA . ' ';
 								if(isset($PatenteB)) echo $PatenteB;
-								?><input type = "hidden" name = "PatenteA" value = <?php
+								?><input type = "hidden" name = "Patente" value = <?php
 												 																							if(isset($PatenteA)) echo $PatenteA . ' ';
 																																			if(isset($PatenteB)) echo $PatenteB;
 												 																							?>></p><br>

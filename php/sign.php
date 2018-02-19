@@ -1,15 +1,33 @@
 <?php
-		include 'start_db.php';
-  	$PatenteA;
-		$PatenteB;
-		$surname = $_GET['cognome'];
-		$name = $_GET['nome'];
-		$email = $_GET['e-mail'];
-		$password = $_GET['password'];
-		$Country = $_GET['COMBO'];
-		$Gender = $_GET['gender'];
-		if(isset($_GET['PatenteA'])) $PatenteA = $_GET['PatenteA'];
-		if(isset($_GET['PatenteB'])) $PatenteB = $_GET['PatenteB'];
+	include 'start_db.php';
+	$Patente = $_GET['Patente'];
+	$surname = $_GET['cognome'];
+	$name = $_GET['nome'];
+	$email = $_GET['e-mail'];
+	$password = $_GET['password'];
+	$Country = $_GET['COMBO'];
+	$Gender = $_GET['gender'];
+
+	/*if(isset($PatenteA) && isset($PatenteB)) $Patente = $PatenteA . ' ' . $PatenteB;
+		else if(isset($_GET['PatenteA'])) $Patente = $_GET['PatenteA'];
+			else $Patente = $_GET['PatenteB'];*/
+		
+  try
+  {
+		$Query = $db->prepare("INSERT INTO Recap(Cognome,Nome,Sesso,Nazionalita,Patente,E-mail,Password) VALUES (:cognome,:nome,:sesso,:nazionalita,:patente,:e-mail,:password);");
+		$Query->bindValue(":cognome",$surname);
+		$Query->bindValue(":nome",$name);
+		$Query->bindValue(":sesso",$Gender);
+		$Query->bindValue(":nazionalita",$Country);
+		$Query->bindValue(":patente", $Patente);
+		$Query->bindValue(":e-mail", $email);
+		$Query->bindValue(":password", $password);
+		if($Query->execute)
+			echo "<script type='text/javascript'>alert('Inserito!');</script>";
+		else
+			echo "<script type='text/javascript'>alert('Non Inserito!');</script>";
+	}catch(PDOException $ex) {echo 'Connection Failed : ' . $ex->getMessage();}
+		
 ?>
 <!DOCTYPE html>
 <html>
