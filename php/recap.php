@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <?php
-  	$PatenteA;
-		$PatenteB;
 		$surname = $_GET['cognome'];
 		$name = $_GET['nome'];
 		$email = $_GET['e-mail'];

@@ -7,26 +7,22 @@
 	$password = $_GET['password'];
 	$Country = $_GET['COMBO'];
 	$Gender = $_GET['gender'];
-
-	/*if(isset($PatenteA) && isset($PatenteB)) $Patente = $PatenteA . ' ' . $PatenteB;
-		else if(isset($_GET['PatenteA'])) $Patente = $_GET['PatenteA'];
-			else $Patente = $_GET['PatenteB'];*/
-		
+			
   try
   {
 		$Query = $db->prepare("INSERT INTO Recap(Cognome,Nome,Sesso,Nazionalita,Patente,E-mail,Password) VALUES (:cognome,:nome,:sesso,:nazionalita,:patente,:e-mail,:password);");
-		$Query->bindValue(":cognome",$surname);
-		$Query->bindValue(":nome",$name);
-		$Query->bindValue(":sesso",$Gender);
-		$Query->bindValue(":nazionalita",$Country);
-		$Query->bindValue(":patente", $Patente);
-		$Query->bindValue(":e-mail", $email);
-		$Query->bindValue(":password", $password);
-		if($Query->execute)
+		$Query->bindValue(':cognome',$surname, PDO::PARAM_STR);
+		$Query->bindValue(':nome',$name, PDO::PARAM_STR);
+		$Query->bindValue(':sesso',$Gender, PDO::PARAM_STR);
+		$Query->bindValue(':nazionalita',$Country, PDO::PARAM_STR);
+		$Query->bindValue(':patente', $Patente, PDO::PARAM_STR);
+		$Query->bindValue(':e-mail', $email, PDO::PARAM_STR);
+		$Query->bindValue(':password', $password, PDO::PARAM_STR);
+		if($Query->execute())
 			echo "<script type='text/javascript'>alert('Inserito!');</script>";
 		else
 			echo "<script type='text/javascript'>alert('Non Inserito!');</script>";
-	}catch(PDOException $ex) {echo 'Connection Failed : ' . $ex->getMessage();}
+	}catch(PDOException $ex) {echo 'Error Bind : ' . $ex->getMessage();}
 		
 ?>
 <!DOCTYPE html>

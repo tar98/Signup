@@ -1,5 +1,5 @@
 <?php
-  $conn_db = "mysql:host=localhost;dbname=Sign-up;charet=utf8mb4";
+  $conn_db = "mysql:host=localhost;dbname=Sign-up";
   $user = "root";
   $pass = "root";
   try
