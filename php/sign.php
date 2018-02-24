@@ -1,23 +1,25 @@
 <?php
 	include 'start_db.php';
-	$Patente = $_GET['Patente'];
+	$Pat = $_GET['Patente'];
 	$surname = $_GET['cognome'];
 	$name = $_GET['nome'];
 	$email = $_GET['e-mail'];
 	$password = $_GET['password'];
 	$Country = $_GET['COMBO'];
 	$Gender = $_GET['gender'];
-			
+	
+	echo gettype($Pat);
+	
   try
   {
 		$Query = $db->prepare("INSERT INTO Recap(Cognome,Nome,Sesso,Nazionalita,Patente,E-mail,Password) VALUES (:cognome,:nome,:sesso,:nazionalita,:patente,:e-mail,:password);");
-		$Query->bindValue(':cognome',$surname, PDO::PARAM_STR);
-		$Query->bindValue(':nome',$name, PDO::PARAM_STR);
-		$Query->bindValue(':sesso',$Gender, PDO::PARAM_STR);
-		$Query->bindValue(':nazionalita',$Country, PDO::PARAM_STR);
-		$Query->bindValue(':patente', $Patente, PDO::PARAM_STR);
-		$Query->bindValue(':e-mail', $email, PDO::PARAM_STR);
-		$Query->bindValue(':password', $password, PDO::PARAM_STR);
+		$Query->bindValue(':cognome',$surname);
+		$Query->bindValue(':nome',$name);
+		$Query->bindValue(':sesso',$Gender);
+		$Query->bindValue(':nazionalita',$Country);
+		$Query->bindValue(':patente', $Pat);
+		$Query->bindValue(':e-mail', $email);
+		$Query->bindValue(':password', $password);
 		if($Query->execute())
 			echo "<script type='text/javascript'>alert('Inserito!');</script>";
 		else

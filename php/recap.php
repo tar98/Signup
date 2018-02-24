@@ -6,8 +6,13 @@
 		$password = $_GET['password'];
 		$Country = $_GET['COMBO'];
 		$Gender = $_GET['gender'];
-		if(isset($_GET['PatenteA'])) $PatenteA = $_GET['PatenteA'];
-		if(isset($_GET['PatenteB'])) $PatenteB = $_GET['PatenteB'];
+
+		if (isset($_GET['PatenteA']) && isset($_GET['PatenteB']))
+			$Patente = $_GET['PatenteA'] . ' ' . $_GET['PatenteB'];
+		else if (isset($_GET['PatenteA']))
+					$Patente = $_GET['PatenteA'];
+				else
+						$Patente = $_GET['PatenteB'];
 ?>
 <html>
   <head>
@@ -32,16 +37,10 @@
          <div class="panel-body">
           <center>
 						  <p>Cognome : <?php echo $surname;?><input id = "SURNAME" type = "hidden" name = "cognome" value = "<?php echo $surname;?>"></p><br>
-							<p>Nome : <?php echo $surname;?><input id = "NAME" type = "hidden" name = "nome" value = "<?php echo $name;?>"></p><br>
+							<p>Nome : <?php echo $name;?><input id = "NAME" type = "hidden" name = "nome" value = "<?php echo $name;?>"></p><br>
 							<p>Sesso : <?php echo $Gender?><input type = "hidden" name = "gender" value = "<?php echo $Gender?>"></p><br>
 							<p>Nazionalita : <?php echo $Country;?><input type = "hidden" name = "COMBO" value = "<?php echo $Country?>"></p><br>
-							<p>Patente :<?php
-								if(isset($PatenteA)) echo $PatenteA . ' ';
-								if(isset($PatenteB)) echo $PatenteB;
-								?><input type = "hidden" name = "Patente" value = <?php
-												 																							if(isset($PatenteA)) echo $PatenteA . ' ';
-																																			if(isset($PatenteB)) echo $PatenteB;
-												 																							?>></p><br>
+							<p>Patente :<?php echo $Patente?><input type = "hidden" name = "Patente" value = "<?php echo $Patente?>"></p><br>
 							<p>Email : <?php echo $email;?><input id = "E-MAIL" type = "hidden" name = "e-mail" value = "<?php echo $email;?>"></p><br>
 							<p>Password : <?php echo $password;?><input id = "PASSWORD" type = "hidden" name = "password" value = "<?php echo $password;?>"></p><br>
 					</center>
