@@ -8,7 +8,7 @@
 		$Gender = $_GET['gender'];
 
 		if (isset($_GET['PatenteA']) && isset($_GET['PatenteB']))
-			$Patente = $_GET['PatenteA'] . ' ' . $_GET['PatenteB'];
+			$Patente = $_GET['PatenteA'] . ' & ' . $_GET['PatenteB'];
 		else if (isset($_GET['PatenteA']))
 					$Patente = $_GET['PatenteA'];
 				else
@@ -40,7 +40,7 @@
 							<p>Nome : <?php echo $name;?><input id = "NAME" type = "hidden" name = "nome" value = "<?php echo $name;?>"></p><br>
 							<p>Sesso : <?php echo $Gender?><input type = "hidden" name = "gender" value = "<?php echo $Gender?>"></p><br>
 							<p>Nazionalita : <?php echo $Country;?><input type = "hidden" name = "COMBO" value = "<?php echo $Country?>"></p><br>
-							<p>Patente :<?php echo $Patente?><input type = "hidden" name = "Patente" value = "<?php echo $Patente?>"></p><br>
+							<p>Patente :<?php echo $Patente?><input type = "hidden" name = "Pat" value = "<?php echo $Patente?>"></p><br>
 							<p>Email : <?php echo $email;?><input id = "E-MAIL" type = "hidden" name = "e-mail" value = "<?php echo $email;?>"></p><br>
 							<p>Password : <?php echo $password;?><input id = "PASSWORD" type = "hidden" name = "password" value = "<?php echo $password;?>"></p><br>
 					</center>

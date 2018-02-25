@@ -1,31 +1,45 @@
 <?php
 	include 'start_db.php';
-	$Pat = $_GET['Patente'];
+	$Pat = $_GET['Pat'];
 	$surname = $_GET['cognome'];
 	$name = $_GET['nome'];
 	$email = $_GET['e-mail'];
 	$password = $_GET['password'];
 	$Country = $_GET['COMBO'];
 	$Gender = $_GET['gender'];
-	
-	echo gettype($Pat);
-	
-  try
-  {
-		$Query = $db->prepare("INSERT INTO Recap(Cognome,Nome,Sesso,Nazionalita,Patente,E-mail,Password) VALUES (:cognome,:nome,:sesso,:nazionalita,:patente,:e-mail,:password);");
-		$Query->bindValue(':cognome',$surname);
-		$Query->bindValue(':nome',$name);
-		$Query->bindValue(':sesso',$Gender);
-		$Query->bindValue(':nazionalita',$Country);
-		$Query->bindValue(':patente', $Pat);
-		$Query->bindValue(':e-mail', $email);
-		$Query->bindValue(':password', $password);
-		if($Query->execute())
-			echo "<script type='text/javascript'>alert('Inserito!');</script>";
-		else
-			echo "<script type='text/javascript'>alert('Non Inserito!');</script>";
-	}catch(PDOException $ex) {echo 'Error Bind : ' . $ex->getMessage();}
-		
+	$bool = true;
+
+	try
+	{
+		$Query = "SELECT Email FROM Recap;";
+		$code = $db->query($Query);
+		if($code->execute())
+			while($row = $code->fetch())
+			{
+				if($row['Email'] == $email)
+				{
+					$msg = "Email gia esistente!";
+					$bool = false;
+				}
+			}
+	}catch(PDOException $ex) {echo $ex->getMessage();}
+	if($bool)
+	{
+		try
+		{
+			$Query = "INSERT INTO Recap(Cognome, Nome, Sesso, Nazionalita, Patente, Email, Password) VALUES (:cognome, :nome, :sesso, :nazionalita, :patente, :email, :password);";		
+			$code = $db->prepare($Query);
+			$code->bindValue(':cognome',$surname);
+			$code->bindValue(':nome',$name);
+			$code->bindValue(':sesso',$Gender);
+			$code->bindValue(':nazionalita',$Country);
+			$code->bindValue(':patente', $Pat);
+			$code->bindValue(':email', $email);
+			$code->bindValue(':password', $password);
+			if($code->execute())
+				$msg = "Dati correttamenti registrati!";
+		}catch(PDOException $ex) {echo 'Error Bind : ' . $ex->getMessage();}
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,7 +63,7 @@
          </div>
          <div class="panel-body">
           <center>
-						<p><strong>Dati correttamenti registrati</strong></p>
+						<p><strong><?php echo $msg; ?></strong></p>
 					</center>
          </div>
          <div class = "panel-footer">
