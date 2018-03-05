@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/style_index.css"/>
+  </head>
+  <body>
+    <div class = "Conteiner" name = "Sign-up">
+			<form action = "php/recap.php" method = "GET" onsubmit = "return check()">
+        <div class="panel panel-default">
+         <div class = "panel-heading">
+            <center>
+              <h2><center>Modulo di Iscrizione</center></h2>
+            </center>  
+         </div>
+         <div class="panel-body">
+          <center>
+							<p>Cognome : <input class = "item" id = "SURNAME" type = "text" name = "cognome"></p><br>
+							<p>Nome :<input class = "item" id = "NAME" type = "text" name = "nome"></p><br>
+							<p>Sesso : Maschio<input class = "RadioB" type = "Radio" name = "gender" value = "M"> Femmina <input class = "RadioB" type = "Radio" name = "gender" value = "F"></p><br>
+							<p>Nazionalita : <select id = "combobox" name = "COMBO">
+																<option name = "IT" value = "Italia">Italia</option>
+																<option name = "EN" value = "UK">United Kingdom</option> 
+																<option name = "USA" value = "USA">United States of America</option>
+																<option name = "FRA" value = "France">France</option>
+															 </select></p><br>
+							<p>Patente : <input class = "Box" type = "checkbox" name = "PatenteA" value = "A">Categ. A <input class = "Box" type = "checkbox" name = "PatenteB" value = "B">Categ. B </p><br>
+							<p>Email : <input class = "item" id = "E-MAIL" type = "Email" name = "e-mail"></p><br>
+							<p>Password : <input class = "item" id = "PASSWORD" type = "password" name = "password"></p><br>
+					</center>
+         </div>
+         <div class = "panel-footer">
+					 		<center>
+              		<p>
+                		<button id = "cancel" type = "button" onclick = "close_window()" value = "Annulla">Chiudi</button>
+                		<button id = "confirm" type = "submit" value = "Conferma">Conferma</button>
+              		</p>
+						 	</center>
+         </div>    
+        </div>
+			</form>
+			<script>
+				function close_window()
+				{
+					var Win = window.self;
+					Win.close();
+				}
+				
+				function check()
+				{
+					var x = document.getElementsByClassName("item");
+					var Radio = document.getElementsByClassName("RadioB");
+					var Categ = document.getElementsByClassName("Box");
+					
+					if(Radio[0].checked == false && Radio[1].checked == false)
+					{
+						alert("Inserire il propio Sesso!");
+						return false;
+					}
+					else
+					{
+						if(Categ[0].checked == false && Categ[1].checked == false)
+						{
+							alert("Inserire la propia Patente!");
+							return false;
+						}
+						else
+							{
+								var i;
+								for (i = 0; i < x.length; i++)
+									{
+										if(!(x[i].value))
+											{
+												alert("Campi Incompleti!");
+												return false;
+											}
+									}
+							}
+						return true;
+					}
+				}
+			</script>
+    </div>
+  </body>
+</html>

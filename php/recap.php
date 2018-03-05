@@ -56,7 +56,7 @@
     </div>
 		<script type="text/javascript">
     document.getElementById("cancel").onclick = function () {
-        location.href = "../index.html";
+        location.href = "../Sign-up.html";
     };
 		</script>
   </body>

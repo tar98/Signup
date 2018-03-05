@@ -18,7 +18,7 @@
 			{
 				if($row['Email'] == $email)
 				{
-					$msg = "Oh boi, Email gia esistente!";
+					$msg = "Email gia esistente!";
 					$bool = false;
 				}
 			}
