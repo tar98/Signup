@@ -10,20 +10,27 @@
   </head>
   <body>
     <div class = "container">
-      <div class="panel panel-default">
-        <div class = "panel-heading">
+      <form action = "" method = "GET">
+        <div class="panel panel-default">
+          <div class = "panel-heading">
+            <center>
+              <p>Modulo di Accesso</p>
+            </center>
+          </div>
+          <div class = "panel-body">
+            <center>
+              <p>User <input type = "text" name = "user"></p>
+              <p>Password <input type = "password" name = "p"></p>
+            </center>
+          </div>
+          <div class = "panel-footer">
+            <center>
+              <input id = "cancel" type = "button" value = "Annulla">
+              <input type = "submit" value = "Login">
+            </center>
+          </div>
         </div>
-        <div class = "panel-body">
-          <p>User <input type = "text" name = "user"></p>
-          <p>Password <input type = "password" name = "p"></p>
-        </div>
-        <div class = "panel-footer">
-          <center>
-            <input id = "cancel" type = "button" value = "Annulla">
-            <input type = "submit" value = "sign-in">
-          </center>
-        </div>
-      </div>
+      </form>
     </div>
 		<script type="text/javascript">
     document.getElementById("cancel").onclick = function () {

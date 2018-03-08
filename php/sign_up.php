@@ -12,7 +12,7 @@
 	try
 	{
 		$Query = "SELECT Email FROM Recap;";
-		$code = $db->query($Query);
+		$code = $db->prepare($Query);
 		if($code->execute())
 			while($row = $code->fetch())
 			{
