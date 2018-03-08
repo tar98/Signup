@@ -19,6 +19,7 @@ $Pass = $_POST['PS'];
             alert('Utente Registrato');
             location.href = '../index.html';
             </script>";
+          $_SESSION['user'] = $User;
 				}
 			}
       echo  
