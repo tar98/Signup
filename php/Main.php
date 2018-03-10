@@ -1,6 +1,5 @@
 <?php
   session_start();
-  
   if(isset($_SESSION['user']))
   {
     $msg = "Ha Fatto l'accesso come utente!";
@@ -34,6 +33,7 @@
          <div class="panel-body">
           <center>
 						<p><strong><?php echo $msg; ?></strong></p>
+						<input type = "hidden" value = "<?php echo $_SESSION['user']?>">
 					</center>
          </div>
          <div class = "panel-footer">
@@ -41,25 +41,26 @@
                 <?php
                 if($bool)
                 {
-                  echo "<form action = 'sign_in_out.php'>
+                  echo "<form action = 'sign_in_out.php' method = 'POST'>
                           <input id = 'exit' type = 'submit' name = 'but' value = 'Logout'>
+													<input type = 'hidden' name = 'exit' value = ".$bool.">
                         </form>";
                 }
                 else
                 {
-                  echo "<input id = 'exit' type = 'button' onclick = 'back_index()' value = 'Indietro'>
-                  <scritp>
-                  function back_index()
-                  {
-                    var Win = window.self;
-                    Win.location.href = '../index.html';
-                  }
-                  </script>";
+                  echo "<input id = 'exit' type = 'button' onclick = 'back_index()' value = 'Indietro'>";
                 }
                 ?>
 						 	</center>
-         </div>    
+         </div>
         </div>
+			<script>
+				function back_index()
+				{
+					var Win = window.self;
+					Win.location.href = "../index.html";
+				}
+			</script>
     </div>
   </body>
 </html>

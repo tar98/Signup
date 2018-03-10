@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class = "container">
-      <form action = "php/sign_in_out.php" method = "POST">
+      <form action = "php/sign_in_out.php" method = "POST" onsubmit = "return check()">
         <div class="panel panel-default">
           <div class = "panel-heading">
             <center>
@@ -19,8 +19,8 @@
           </div>
           <div class = "panel-body">
             <center>
-              <p>User <input type = "text" name = "user"></p>
-              <p>Password <input type = "password" name = "PS"></p>
+              <p>User <input class = "item" type = "text" name = "user"></p>
+              <p>Password <input class = "item" type = "password" name = "PS"></p>
             </center>
           </div>
           <div class = "panel-footer">
@@ -32,10 +32,25 @@
         </div>
       </form>
     </div>
-		<script type="text/javascript">
+		<script type = "text/javascript">
     document.getElementById("cancel").onclick = function () {
         location.href = "index.html";
     };
+		</script>
+		<script>
+			function check()
+			{
+				var x = document.getElementByClassName("item");
+				for(var i = 0; i < x.length; i++)
+				{
+					if(!(x[i].value))
+						{
+							alert("Errore");
+							return false;
+						}
+				}
+				return true;
+			}
 		</script>
   </body>
 </html>
