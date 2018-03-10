@@ -38,7 +38,7 @@
          <div class = "panel-footer">
 					 		<center>
               		<p>
-                		<button id = "cancel" type = "button" onclick = "close_window()" value = "Annulla">Chiudi</button>
+                		<button id = "cancel" type = "button" onclick = "back_fun()" value = "Annulla">Chiudi</button>
                 		<button id = "confirm" type = "submit" value = "Conferma">Conferma</button>
               		</p>
 						 	</center>
@@ -46,10 +46,10 @@
         </div>
 			</form>
 			<script>
-				function close_window()
+				function back_fun()
 				{
 					var Win = window.self;
-					Win.close();
+					Win.location.href = "index.html";
 				}
 				
 				function check()

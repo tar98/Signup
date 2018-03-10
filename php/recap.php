@@ -27,7 +27,7 @@
   </head>
   <body>
     <div class = "Container" name = "Sign-up">
-		<form action = "sign.php" method = "GET">
+		<form action = "sign_up.php" method = "GET">
         <div class="panel panel-default">
          <div class = "panel-heading">
             <center>
