@@ -4,8 +4,10 @@
 		$name = $_GET['nome'];
 		$email = $_GET['e-mail'];
 		$password = $_GET['password'];
-		$Country = $_GET['COMBO'];
+		$cel = $_GET['telefono'];
+		$year = $_GET['Year']
 		$Gender = $_GET['gender'];
+		$Country = $_GET['COMBO'];
 
 		if (isset($_GET['PatenteA']) && isset($_GET['PatenteB']))
 			$Patente = $_GET['PatenteA'] . ' & ' . $_GET['PatenteB'];
@@ -13,6 +15,8 @@
 					$Patente = $_GET['PatenteA'];
 				else
 						$Patente = $_GET['PatenteB'];
+
+  $Scadenza = $_GET['scadenza'];
 ?>
 <html>
   <head>
@@ -38,11 +42,14 @@
           <center>
 						  <p>Cognome : <?php echo $surname;?><input id = "SURNAME" type = "hidden" name = "cognome" value = "<?php echo $surname;?>"></p><br>
 							<p>Nome : <?php echo $name;?><input id = "NAME" type = "hidden" name = "nome" value = "<?php echo $name;?>"></p><br>
-							<p>Sesso : <?php echo $Gender?><input type = "hidden" name = "gender" value = "<?php echo $Gender?>"></p><br>
-							<p>Nazionalita : <?php echo $Country;?><input type = "hidden" name = "COMBO" value = "<?php echo $Country?>"></p><br>
-							<p>Patente :<?php echo $Patente?><input type = "hidden" name = "Pat" value = "<?php echo $Patente?>"></p><br>
 							<p>Email : <?php echo $email;?><input id = "E-MAIL" type = "hidden" name = "e-mail" value = "<?php echo $email;?>"></p><br>
 							<p>Password : <?php echo $password;?><input id = "PASSWORD" type = "hidden" name = "password" value = "<?php echo $password;?>"></p><br>
+							<p>Telefono : <?php echo $cel;?><input id = "tel" type = "hidden" name = "telefono" value = "<?php echo $cel;?>"></p><br>
+							<p>Anno Nascita : <?php echo $year;?><input id = "Anno" type = "hidden" name = "Year" value = "<?php echo $year;?>"></p><br>
+							<p>Sesso : <?php echo $Gender?><input type = "hidden" name = "gender" value = "<?php echo $Gender;?>"></p><br>
+							<p>Nazionalita : <?php echo $Country;?><input type = "hidden" name = "COMBO" value = "<?php echo $Country;?>"></p><br>
+              <p>Patente : <?php echo $Patente;?><input type = "hidden" name = "Pat" value = "<?php echo $Patente;?>"></p><br>
+              <p>Scadenza Patente : <?php echo $Scadenza;?><input type = "hidden" name = "scadenza" value = "<?php echo $Scadenza;?>"></p><br>
 					</center>
          </div>
          <div class = "panel-footer">
@@ -56,7 +63,7 @@
     </div>
 		<script type="text/javascript">
     document.getElementById("cancel").onclick = function () {
-        location.href = "../Sign-up.html";
+        location.href = "../Sign-up-autista.html";
     };
 		</script>
   </body>
