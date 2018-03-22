@@ -5,7 +5,7 @@
 		$email = $_GET['e-mail'];
 		$password = $_GET['password'];
 		$cel = $_GET['telefono'];
-		$year = $_GET['Year']
+		$year = $_GET['yyyymmgg']
 		$Gender = $_GET['gender'];
 		$Country = $_GET['COMBO'];
 
@@ -45,7 +45,7 @@
 							<p>Email : <?php echo $email;?><input id = "E-MAIL" type = "hidden" name = "e-mail" value = "<?php echo $email;?>"></p><br>
 							<p>Password : <?php echo $password;?><input id = "PASSWORD" type = "hidden" name = "password" value = "<?php echo $password;?>"></p><br>
 							<p>Telefono : <?php echo $cel;?><input id = "tel" type = "hidden" name = "telefono" value = "<?php echo $cel;?>"></p><br>
-							<p>Anno Nascita : <?php echo $year;?><input id = "Anno" type = "hidden" name = "Year" value = "<?php echo $year;?>"></p><br>
+							<p>Anno Nascita : <?php echo $year;?><input id = "Anno" type = "hidden" name = "yyyymmgg" value = "<?php echo $year;?>"></p><br>
 							<p>Sesso : <?php echo $Gender?><input type = "hidden" name = "gender" value = "<?php echo $Gender;?>"></p><br>
 							<p>Nazionalita : <?php echo $Country;?><input type = "hidden" name = "COMBO" value = "<?php echo $Country;?>"></p><br>
               <p>Patente : <?php echo $Patente;?><input type = "hidden" name = "Pat" value = "<?php echo $Patente;?>"></p><br>
