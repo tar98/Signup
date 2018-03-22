@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <?php
-		$surname = $_GET['cognome'];
-		$name = $_GET['nome'];
-		$email = $_GET['e-mail'];
-		$password = $_GET['password'];
-		$cel = $_GET['telefono'];
-		$year = $_GET['yyyymmgg']
-		$Gender = $_GET['gender'];
-		$Country = $_GET['COMBO'];
+	$surname = $_GET['cognome'];
+	$name = $_GET['nome'];
+	$email = $_GET['e-mail'];
+	$password = $_GET['password'];
+	$cel = $_GET['telefono'];
+	$year = $_GET['yyyymmgg'];
+	$Gender = $_GET['gender'];
+	$Country = $_GET['COMBO'];
 
+	if(isset($_GET['scadenza']))
+	{
+		$Scadenza = $_GET['scadenza'];
 		if (isset($_GET['PatenteA']) && isset($_GET['PatenteB']))
 			$Patente = $_GET['PatenteA'] . ' & ' . $_GET['PatenteB'];
 		else if (isset($_GET['PatenteA']))
 					$Patente = $_GET['PatenteA'];
-				else
-						$Patente = $_GET['PatenteB'];
+		else
+				$Patente = $_GET['PatenteB'];
+		$msg = "<p>Patente : <?php echo ".$Patente.";?><input type = 'hidden' name = 'Pat' value = '<?php echo ".$Patente.";?>'></p><br>
+              <p>Scadenza Patente : <?php echo ".$Scadenza.";?><input type = 'hidden' name = 'scadenza' value = '<?php echo ".$Scadenza.";?>'></p><br>";
+	}
+	else
+	{
+		$msg = "";
+	}
+	if (isset)$_GET['scadenza'];
 
-  $Scadenza = $_GET['scadenza'];
 ?>
 <html>
   <head>
@@ -48,8 +58,7 @@
 							<p>Anno Nascita : <?php echo $year;?><input id = "Anno" type = "hidden" name = "yyyymmgg" value = "<?php echo $year;?>"></p><br>
 							<p>Sesso : <?php echo $Gender?><input type = "hidden" name = "gender" value = "<?php echo $Gender;?>"></p><br>
 							<p>Nazionalita : <?php echo $Country;?><input type = "hidden" name = "COMBO" value = "<?php echo $Country;?>"></p><br>
-              <p>Patente : <?php echo $Patente;?><input type = "hidden" name = "Pat" value = "<?php echo $Patente;?>"></p><br>
-              <p>Scadenza Patente : <?php echo $Scadenza;?><input type = "hidden" name = "scadenza" value = "<?php echo $Scadenza;?>"></p><br>
+              <?php echo $msg;?>
 					</center>
          </div>
          <div class = "panel-footer">
@@ -61,7 +70,7 @@
         </div>
 			</form>
     </div>
-		<script type="text/javascript">
+		<script language = "javascript" type="text/javascript">
     document.getElementById("cancel").onclick = function () {
         location.href = "../Sign-up-autista.html";
     };

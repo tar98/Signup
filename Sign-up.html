@@ -18,25 +18,10 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/style_index.css"/>
-		<script>
-			function AorP()
-			{
-				if(document.getElementById('PCheck').checked)
-				{
-					document.getElementById('patente').style.display = 'none';
-					document.getElementById('scad_patente').style.display = 'none';
-				}
-				else
-					{
-						document.getElementById('patente').style.display = 'block';
-						document.getElementById('scad_patente').style.display = 'block';
-					}
-			}
-		</script>
   </head>
   <body>
     <div class = "Conteiner" name = "Sign-up">
-			<form action = "php/recap-autista.php" method = "GET" onsubmit = "return check()">
+			<form action = "php/recap.php" method = "GET" onsubmit = "return check()">
         <div class="panel panel-default">
          <div class = "panel-heading">
             <center>
@@ -48,8 +33,8 @@
 							<p>
 							 Tipo Persona
 								<div>
-									<label><input  type="radio" onclick="javascript:AorP();" name = "A_or_P" id="PCheck"/>Passeggero</label>
-									<label> <input checked = "true" type="radio" onclick="javascript:AorP();" name = "A_or_P" id="ACheck"/>Autista </label>
+									<label><input  type="radio" onclick="AorP();" name = "A_or_P" id="PCheck"/>Passeggero</label>
+									<label> <input checked = "true" type="radio" onclick="AorP();" name = "A_or_P" id="ACheck"/>Autista </label>
 								</div>
 							</p>
               <div>Cognome : <input  id = "SURNAME" type = "text" name = "cognome" required></div><br>
@@ -66,7 +51,7 @@
 																<option name = "FRA" value = "France">France</option>
 															 </select></div><br>
 							<div id = "patente">Patente : <input class = "Box" type = "checkbox" name = "PatenteA" value = "A">Categ. A <input class = "Box" type = "checkbox" name = "PatenteB" value = "B">Categ. B </div><br>
-              <div id = "scad_patente">Scadenza Patente: <input  id = "scadp" type = "text" name = "scadenza" style = "color:#000000;" required></div><br>
+              <div id = "scad_patente">Scadenza Patente: <input  id = "scadp" type = "date" name = "scadenza" style = "color:#000000;" required></div><br>
 					</center>
          </div>
          <div class = "panel-footer">
@@ -106,6 +91,20 @@
 						return true;
 					}
 				}
+				
+			function AorP()
+			{
+				if(document.getElementById('PCheck').checked)
+				{
+					document.getElementById('patente').style.display = 'none';
+					document.getElementById('scad_patente').style.display = 'none';
+				}
+				else
+					{
+						document.getElementById('patente').style.display = 'block';
+						document.getElementById('scad_patente').style.display = 'block';
+					}
+			}
 			</script>
     </div>
   </body>
