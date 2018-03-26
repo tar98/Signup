@@ -3,28 +3,68 @@
 	$bool = true;
 	if(isset($_GET['Pat'])) //Autisti
 	{
-		$surname = $_GET['cognome'];
-		$name = $_GET['nome'];
-		$email = $_GET['e-mail'];
-		$password = $_GET['password'];
-		$cel = $_GET['telefono'];
-		$year = $_GET['Year']
-		$Gender = $_GET['gender'];
-		$Country = $_GET['COMBO'];
 		$Scadenza = $_GET['scadenza'];
 		$Pat = $_GET['Pat'];
-		
-		
+	}
+
+	$surname = $_GET['cognome'];
+	$name = $_GET['nome'];
+	$email = $_GET['e-mail'];
+	$password = $_GET['password'];
+	$cel = $_GET['telefono'];
+	$year = $_GET['yyyymmgg'];
+	$Gender = $_GET['gender'];
+	$Country = $_GET['COMBO'];
+	$Individuo = $_GET['ind'];
+
+	if($Individuo == "Passegero")
+	{
 		try
 		{
-			$Query = "SELECT Email FROM Recap;";
+			$Query = "SELECT Email FROM Passegero;";
 			$code = $db->prepare($Query);
 			if($code->execute())
 				while($row = $code->fetch())
 				{
 					if($row['Email'] == $email)
 					{
-						$msg = "Email gia esistente!";
+						$msg = "Email gia' esistente!";
+						$bool = false;
+					}
+				}
+		}catch(PDOException $ex) {echo $ex->getMessage();}
+		if($bool)
+		{
+			try
+			{
+				$Query = "INSERT INTO Passegero(Cognome, Nome, Email, Password, Telefono, Anno_nascita, Sesso, Nazionalita) VALUES (:cognome, :nome, :email, :password, :cel, :anno, :sesso, :nazionalita);";	
+				$code = $db->prepare($Query);
+				$code->bindValue(':cognome',$surname);
+				$code->bindValue(':nome',$name);
+				$code->bindValue(':email', $email);
+				$code->bindValue(':password', $password);
+				$code->bindValue(':cel', $cel);
+				$code->bindValue(':anno', $year);
+				$code->bindValue(':sesso', $Gender);
+				$code->bindValue(':nazionalita',$Country);
+
+				if($code->execute())
+					$msg = "Dati correttamenti registrati!";
+			}catch(PDOException $ex) {echo 'Error Bind : ' . $ex->getMessage();}
+		}
+	}
+	else
+	{
+		try
+		{
+			$Query = "SELECT Email FROM Autista;";
+			$code = $db->prepare($Query);
+			if($code->execute())
+				while($row = $code->fetch())
+				{
+					if($row['Email'] == $email)
+					{
+						$msg = "Email gia' esistente!";
 						$bool = false;
 					}
 				}
@@ -39,6 +79,8 @@
 				$code->bindValue(':nome',$name);
 				$code->bindValue(':email', $email);
 				$code->bindValue(':password', $password);
+				$code->bindValue(':cel', $cel);
+				$code->bindValue(':anno', $year);
 				$code->bindValue(':sesso',$Gender);
 				$code->bindValue(':nazionalita',$Country);
 				$code->bindValue(':patente', $Pat);
@@ -48,12 +90,8 @@
 					$msg = "Dati correttamenti registrati!";
 			}catch(PDOException $ex) {echo 'Error Bind : ' . $ex->getMessage();}
 		}
-		
 	}
-	else //Patente
-	{
-		
-	}
+
 ?>
 <!DOCTYPE html>
 <html>

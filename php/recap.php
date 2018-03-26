@@ -5,11 +5,11 @@
 	$email = $_GET['e-mail'];
 	$password = $_GET['password'];
 	$cel = $_GET['telefono'];
-	$year = $_GET['yyyymmgg'];
+	$date = $_GET['yyyymmgg'];
 	$Gender = $_GET['gender'];
 	$Country = $_GET['COMBO'];
 
-	if(isset($_GET['scadenza']))
+	if(isset($_GET['PatenteB']) || isset($_GET['PatenteA']))
 	{
 		$Scadenza = $_GET['scadenza'];
 		if (isset($_GET['PatenteA']) && isset($_GET['PatenteB']))
@@ -18,15 +18,14 @@
 					$Patente = $_GET['PatenteA'];
 		else
 				$Patente = $_GET['PatenteB'];
-		$msg = "<p>Patente : <?php echo ".$Patente.";?><input type = 'hidden' name = 'Pat' value = '<?php echo ".$Patente.";?>'></p><br>
-              <p>Scadenza Patente : <?php echo ".$Scadenza.";?><input type = 'hidden' name = 'scadenza' value = '<?php echo ".$Scadenza.";?>'></p><br>";
+		$msg = "<p>Patente : ".$Patente.".<input type = 'hidden' name = 'Pat' value = '".$Patente."'></p><br>
+              <p>Scadenza Patente : ".$Scadenza."<input type = 'hidden' name = 'scadenza' value = '".$Scadenza."'></p><br>
+							<input type = 'hidden' name = 'ind' value = 'Autista'>";
 	}
 	else
 	{
-		$msg = "";
+		$msg = "<input type = 'hidden' name = 'ind' value = 'Passegero'> ";
 	}
-	if (isset)$_GET['scadenza'];
-
 ?>
 <html>
   <head>
@@ -55,7 +54,7 @@
 							<p>Email : <?php echo $email;?><input id = "E-MAIL" type = "hidden" name = "e-mail" value = "<?php echo $email;?>"></p><br>
 							<p>Password : <?php echo $password;?><input id = "PASSWORD" type = "hidden" name = "password" value = "<?php echo $password;?>"></p><br>
 							<p>Telefono : <?php echo $cel;?><input id = "tel" type = "hidden" name = "telefono" value = "<?php echo $cel;?>"></p><br>
-							<p>Anno Nascita : <?php echo $year;?><input id = "Anno" type = "hidden" name = "yyyymmgg" value = "<?php echo $year;?>"></p><br>
+							<p>Data Nascita : <?php echo $date;?><input id = "data_ind" type = "hidden" name = "yyyymmgg" value = "<?php echo $date;?>"></p><br>
 							<p>Sesso : <?php echo $Gender?><input type = "hidden" name = "gender" value = "<?php echo $Gender;?>"></p><br>
 							<p>Nazionalita : <?php echo $Country;?><input type = "hidden" name = "COMBO" value = "<?php echo $Country;?>"></p><br>
               <?php echo $msg;?>
@@ -72,7 +71,7 @@
     </div>
 		<script language = "javascript" type="text/javascript">
     document.getElementById("cancel").onclick = function () {
-        location.href = "../Sign-up-autista.html";
+        location.href = "../Sign-up.html";
     };
 		</script>
   </body>
