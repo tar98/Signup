@@ -21,6 +21,7 @@
             <center>
               <p>User <input class = "item" type = "text" name = "user"></p>
               <p>Password <input class = "item" type = "password" name = "PS"></p>
+							<p>Genere : Autista <input id = "kind1" type = "radio" name = "choose" value = "Autista" checked> Passegero <input id = "kind2" type = "radio" name = "choose" value = "Passegero"></p>
             </center>
           </div>
           <div class = "panel-footer">
@@ -41,15 +42,12 @@
 			function check()
 			{
 				var x = document.getElementByClassName("item");
-				for(var i = 0; i < x.length; i++)
-				{
-					if(!(x[i].value))
-						{
-							alert("Errore");
-							return false;
-						}
-				}
-				return true;
+				if(!(x[0].value) || !(x[1].value))
+					{
+						alert("Errore");
+						return false;
+					}
+				else return true;
 			}
 		</script>
   </body>

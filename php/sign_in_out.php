@@ -13,31 +13,64 @@ else
 	include 'start_db.php';
 	$User = $_POST['user'];
 	$Pass = $_POST['PS'];
-	try
+	$Class = $_POST['choose']; //se autista o passegero
+	if($Class == "Autista")
 	{
-		$Query = "SELECT Email,Password FROM Recap;";
-		$code = $db->prepare($Query);
-		if($code->execute())
+		try
 		{
-			while($row = $code->fetch())
+			$Query = "SELECT Email, Password FROM Autista;";
+			$code = $db->prepare($Query);
+			if($code->execute())
 			{
-				if($row['Email'] == $User && $row['Password'] == $Pass)
+				while($row = $code->fetch())
 				{
-					session_start();
-					echo 
-						"<script>
-						alert('Utente Registrato');
-						location.href = '../index.html';
-						</script>";
-					$_SESSION['user'] = $User;
+					if($row['Email'] == $User && $row['Password'] == $Pass)
+					{
+						session_start();
+						echo 
+							"<script>
+							alert('Utente Registrato');
+							location.href = '../index.html';
+							</script>";
+						$_SESSION['user'] = $User;
+					}
 				}
+							echo
+					"<script>
+					alert('Credenziali Errate');
+					location.href = '../Sign-in.html';
+					</script>";
 			}
-						echo
-				"<script>
-				alert('Credenziali Errate');
-				location.href = '../Sign-in.html';
-				</script>";
-		}
-	}catch(PDOException $ex) {echo $ex->getMessage();}
+		}catch(PDOException $ex) {echo $ex->getMessage();}
+	}
+	else
+	{
+		try
+		{
+			$Query = "SELECT Email, Password FROM Passegero;";
+			$code = $db->prepare($Query);
+			if($code->execute())
+			{
+				while($row = $code->fetch())
+				{
+					if($row['Email'] == $User && $row['Password'] == $Pass)
+					{
+						session_start();
+						echo 
+							"<script>
+							alert('Utente Registrato');
+							location.href = '../index.html';
+							</script>";
+						$_SESSION['user'] = $User;
+					}
+				}
+							echo
+					"<script>
+					alert('Credenziali Errate');
+					location.href = '../Sign-in.html';
+					</script>";
+			}
+		}catch(PDOException $ex) {echo $ex->getMessage();}
+	}
 }
 ?>

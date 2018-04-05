@@ -31,7 +31,7 @@
 							 Tipo Persona
 								<div>
 									<label><input  type="radio" onclick="AorP();" name = "A_or_P" id="PCheck"/>Passeggero</label>
-									<label> <input checked = "true" type="radio" onclick="AorP();" name = "A_or_P" id="ACheck"/>Autista </label>
+									<label> <input  type="radio" onclick="AorP();" name = "A_or_P" id="ACheck" checked/>Autista </label>
 								</div>
 							</p>
               <div>Cognome : <input style = "background: #FFFFFF; color: #000000; font-family: Arial, Corbel, sans-serif; font-size: 16px;"  id = "SURNAME" type = "text" name = "cognome" required></div><br>
@@ -47,7 +47,7 @@
 																<option name = "USA" value = "USA">United States of America</option>
 																<option name = "FRA" value = "France">France</option>
 															 </select></div><br>
-							<div id = "patente">Patente : <input class = "Box" type = "checkbox" name = "PatenteA" value = "A">Categ. A <input class = "Box" type = "checkbox" name = "PatenteB" value = "B">Categ. B </div><br>
+							<div id = "patente">Patente : <input class = "Box" id = "PatA" type = "checkbox" name = "PatenteA" value = "A">Categ. A <input class = "Box" id = "PatB" type = "checkbox" name = "PatenteB" value = "B">Categ. B </div><br>
               <div id = "scad_patente">Scadenza Patente: <input style = "background: #FFFFFF; color: #000000; font-family: Arial, Corbel, sans-serif; font-size: 16px;" id = "scadp" type = "date" name = "scadenza"></div><br>
 					</center>
          </div>
@@ -107,12 +107,14 @@
 				{
 					document.getElementById('patente').style.display = 'none';
 					document.getElementById('scad_patente').style.display = 'none';
+					document.getElementById('PatA').checked = false;
+					document.getElementById('PatB').checked = false;
 				}
 				else
-					{
-						document.getElementById('patente').style.display = 'block';
-						document.getElementById('scad_patente').style.display = 'block';
-					}
+				{
+					document.getElementById('patente').style.display = 'block';
+					document.getElementById('scad_patente').style.display = 'block';
+				}
 			}
 			</script>
     </div>
