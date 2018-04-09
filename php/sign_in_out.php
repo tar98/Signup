@@ -18,7 +18,7 @@ else
 	{
 		try
 		{
-			$Query = "SELECT Email, Password FROM Autista;";
+			$Query = "SELECT ID_autista ,Email, Password FROM Autista;";
 			$code = $db->prepare($Query);
 			if($code->execute())
 			{
@@ -33,6 +33,8 @@ else
 							location.href = '../index.html';
 							</script>";
 						$_SESSION['user'] = $User;
+						$_SESSION['pass'] = $Pass;
+						$_SESSION['ID'] = $row['ID_autista'];
 					}
 				}
 							echo
@@ -47,7 +49,7 @@ else
 	{
 		try
 		{
-			$Query = "SELECT Email, Password FROM Passegero;";
+			$Query = "SELECT ID_pas, Email, Password FROM Passegero;";
 			$code = $db->prepare($Query);
 			if($code->execute())
 			{
@@ -62,6 +64,8 @@ else
 							location.href = '../index.html';
 							</script>";
 						$_SESSION['user'] = $User;
+						$_SESSION['pass'] = $Pass;
+						$_SESSION['ID'] = $row['ID_pas'];
 					}
 				}
 							echo
